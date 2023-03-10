@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+:root {
+    --abyss-black: #121212;
+    --soft-white: #e3e3e3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark){
+    body {
+        background-color: var(--abyss-black);
+    }
+
+}
+@media (prefers-color-scheme: light){
+    body {
+        background-color: var(--soft-white);
+    }
+}
