@@ -4,6 +4,8 @@
 
 :root {
     --abyss-black: #121212;
+    --soft-black: #333;
+    --white: #fff;
     --soft-white: #e3e3e3;
 }
 
@@ -13,14 +15,53 @@
     box-sizing: border-box;
 }
 
+body {
+    min-height: 100vh;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.search {
+    display: flex;
+}
+
+.search-bar {
+    border-radius: 1rem;
+    border: none;
+}
+
 @media (prefers-color-scheme: dark){
     body {
         background-color: var(--abyss-black);
+    }
+    .title {
+        color: var(--soft-white);
+    }
+    .weather > * {
+        color: var(--soft-white);
+    }
+    .search-bar {
+        background-color: #333;
     }
 
 }
 @media (prefers-color-scheme: light){
     body {
         background-color: var(--soft-white);
+    }
+    .title {
+        color: var(--abyss-black);
+    }
+    .weather > * {
+        color: var(--abyss-black);
+    }
+    .search-bar {
+        background-color: var(--white);
     }
 }
