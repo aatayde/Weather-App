@@ -24,8 +24,7 @@
 ### Resources
 
 - [OpenWeather API](https://openweathermap.org/current)
-- [OpenWeather Icons](https://openweathermap.org/current)
+- [OpenWeather Icons](https://openweathermap.org/weather-conditions)
 - [Google Fonts]()
-- [Unsplash] Random Image()
+- [Unsplash]() Random Image
 - [Fetch]()
-- [Google Fonts]()
