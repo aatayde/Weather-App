@@ -16,24 +16,74 @@
 }
 
 body {
-    min-height: 100vh;
+    height: 100vh;
+    background-image: 
+        url('https://source.unsplash.com/random?seattle');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: grid;
+    place-content: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.city {
+    text-align: center;
+    font-size: 2.6em;
+}
+
+.temp {
+    align-self: center;
+    font-size: 2.2em;
+}
+
+.humidity {
+    padding-bottom: .4rem 1rem;
 }
 
 .weather {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+    padding: 1rem;
+    border-radius: 1rem;
+    
+    font-family: Ubuntu;
 }
 
 .search {
     display: flex;
 }
 
+button {
+    cursor: pointer;
+}
+
+.search-icon {
+    transform: translateX(-20px);
+    outline: none;
+    border: none;
+    background-color: inherit;
+}
+
+.search-icon svg {
+    display: flex;
+}
+
 .search-bar {
+    text-align: center;
+    background-color: transparent;
     border-radius: 1rem;
     border: none;
+    min-width: 100%;
+    padding: .4rem 1rem;
+}
+
+.search-bar:hover {
+    cursor: pointer;
+    /* on hover, increase width */
 }
 
 @media (prefers-color-scheme: dark){
@@ -43,11 +93,15 @@ body {
     .title {
         color: var(--soft-white);
     }
+    .weather {
+        background-color: var(--abyss-black);
+    }
     .weather > * {
         color: var(--soft-white);
     }
     .search-bar {
-        background-color: #333;
+        color: var(--soft-white);
+        background-color: var(--soft-black);
     }
 
 }
@@ -58,10 +112,15 @@ body {
     .title {
         color: var(--abyss-black);
     }
+    .weather {
+        background-color: var(--soft-white);
+    }
     .weather > * {
         color: var(--abyss-black);
     }
     .search-bar {
+        color: var(--abyss-black);
         background-color: var(--white);
+
     }
 }
