@@ -25,7 +25,8 @@
 
 - [OpenWeather API](https://openweathermap.org/current)
 - [OpenWeather Icons](https://openweathermap.org/weather-conditions)
-- [Google Fonts]()
-- [Unsplash]() Random Image
-- [Fetch]()
+- [Google Fonts](https://fonts.google.com/)
+- [Unsplash](https://awik.io/generate-random-images-unsplash-without-using-api/) Random Image
+- JavaScript [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 - [keydown](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event) Event
+
