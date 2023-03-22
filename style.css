@@ -90,11 +90,13 @@ button {
 }
 
 #title {
+    position: absolute;
     font-size: 3em;
     text-align: center;
     animation-name: fadein;
     animation-duration: 5s;
     opacity: 0;
+    transform: translateY(-3rem);
 }
 
 /* animation */
