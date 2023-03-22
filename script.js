@@ -18,9 +18,9 @@ weather = {
         document.querySelector('.icon').src = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
         document.querySelector('.temp').innerText =  temp, "° C";
         document.querySelector('.desctiption').innerText =  description;
-        document.querySelector('.wind').innerText = "wind ", speed,  " mph";
-        document.querySelector('.humidity').innerText = "humidity ", humidity, "%";
-        document.body.style.backgroundImage = "url('https://source.unsplash.com/?" + name +"')";
+        document.querySelector('.wind').innerText = "wind " + speed + " mph";
+        document.querySelector('.humidity').innerText = "humidity " + humidity + "%";
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/random/?" + name +"')";
     },
     search: function(){
         this.fetchWeather(document.querySelector('.search-bar').value)
