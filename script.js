@@ -14,25 +14,35 @@ weather = {
         const { temp, humidity} = data.main;
         const { speed } = data.wind;
         console.log(name, icon, description, temp, humidity, speed)
+        document.querySelector('.city').innerText = name;
+        document.querySelector('.icon').src = "https://openweathermap.org/img/wn/" + icon + ".png";
+        document.querySelector('.temp').innerText =  temp, "° C";
+        document.querySelector('.desctiption').innerText =  description;
+        document.querySelector('.wind').innerText = "wind ", speed,  " mph";
+        document.querySelector('.humidity').innerText = "humidity ", humidity, "%";
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/?" + name +"')";
+    },
+    search: function(){
+        this.fetchWeather(document.querySelector('.search-bar').value)
+    },
+    clearSearchText: function(){
+        document.querySelector('.search-bar').value = '';
     }
-
 }
 
-function getCity(){
-   city = document.querySelector('.search-bar').value
-}
+// Add Search Buton Feature
+document.querySelector('.search button').addEventListener("click", function(){
+    weather.search();
+    weather.clearSearchText();
+})
 
-// update title 
-function updateUI(){
-    getCity()
-    document.querySelector('.city').innerText = city
 
-}
 
 // Add event listener for city input on keydown
 document.querySelector('.search-bar').addEventListener("keydown", function(event){
     if (event.key=="Enter"){
-        getCity()
+        weather.search();
+        weather.clearSearchText();
     }
 })
 
