@@ -1,22 +1,29 @@
-let API_key = '0376c7e7c3f905978d9b8dfbdc92fdda';
-let link = 'https://api.openweathermap.org/data/2.5/weather?q=';
-let city = document.getElementsByClassName('search-bar').value;
-let call = link + city + '&units=metric&appid=' + API_key;
-
-let icon_size = '2x'
 // let icon_link = 'https://openweathermap.org/img/wn/' + weather.icon + '@' + icon_size + '.png'
 
+weather = {
+    key: '0376c7e7c3f905978d9b8dfbdc92fdda',
+    fetchWeather: function(city){
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=' + this.key)
+        .then(response => response.json())
+        .then(data => this.displayWeather(data))
+        .catch(error => console.log("Error: ", error))
+    },
+    displayWeather: function(data){
+        const { name } = data;
+        const { icon, description } = data.weather[0]
+    }
 
-console.log(call)
-
-// fetch(call)
-//     .then((response) =>response.json)
-//     .then((data => console.log(data)))
-
+}
 
 function getCity(){
    city = document.querySelector('.search-bar').value
-   document.querySelector('.city').innerText = city
+}
+
+// update title 
+function updateUI(){
+    getCity()
+    document.querySelector('.city').innerText = city
+
 }
 
 // Add event listener for city input on keydown
@@ -26,4 +33,3 @@ document.querySelector('.search-bar').addEventListener("keydown", function(event
     }
 })
 
-// update title 
