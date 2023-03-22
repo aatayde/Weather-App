@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 
 :root {
@@ -50,7 +51,7 @@ body {
     padding: 1rem;
     border-radius: 1rem;
     
-    font-family: Ubuntu;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .search {
