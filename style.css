@@ -43,7 +43,7 @@ body {
 }
 
 .humidity {
-    padding-bottom: .4rem 1rem;
+    padding: 0rem 0rem 1rem 0rem;
 }
 
 .weather {
@@ -62,10 +62,11 @@ button {
 }
 
 .search-icon {
-    transform: translateX(-20px);
+    transform: translateX(-30px);
     outline: none;
     border: none;
     background-color: inherit;
+    font-size: 1.2em;
 }
 
 .search-icon svg {
@@ -79,6 +80,7 @@ button {
     border: none;
     min-width: 100%;
     padding: .4rem 1rem;
+    font-size: 1em;
 }
 
 .search-bar:hover {
@@ -113,14 +115,14 @@ button {
         color: var(--abyss-black);
     }
     .weather {
-        background-color: var(--soft-white);
+        background-color: var(--white);
     }
     .weather > * {
         color: var(--abyss-black);
     }
     .search-bar {
         color: var(--abyss-black);
-        background-color: var(--white);
+        background-color: var(--soft-white);
 
     }
 }
