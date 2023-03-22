@@ -27,7 +27,7 @@ weather = {
     },
     clearSearchText: function(){
         document.querySelector('.search-bar').value = '';
-    }
+    },
 }
 
 // Add Search Buton Feature
