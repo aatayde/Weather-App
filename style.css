@@ -17,8 +17,8 @@
 
 body {
     height: 100vh;
-    background-image: 
-        url('https://source.unsplash.com/random?seattle');
+    /* background-image: 
+        url('https://source.unsplash.com/random?seattle'); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
