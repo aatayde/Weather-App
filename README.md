@@ -9,7 +9,6 @@
 - start at the html, create the structure & layout
     - vertical stack on mobile
     - horizontal stack on landspace displays
-    - 
 - add dummy data to visually see placements of components
 - add fonts & dark|light themes
 - add styling for arrangement
@@ -29,4 +28,6 @@
 - [Unsplash](https://awik.io/generate-random-images-unsplash-without-using-api/) Random Image
 - JavaScript [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 - [keydown](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event) Event
-
+- [click](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) Event
+- [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed) method
