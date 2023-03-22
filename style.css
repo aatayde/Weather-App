@@ -88,6 +88,26 @@ button {
     /* on hover, increase width */
 }
 
+#title {
+    font-size: 3em;
+    text-align: center;
+    animation-name: fadein;
+    animation-duration: 5s;
+    opacity: 0;
+}
+
+/* animation */
+@keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+  
+    55% {
+      opacity: 1;
+    }
+}
+
+
 @media (prefers-color-scheme: dark){
     body {
         background-color: var(--abyss-black);
@@ -109,7 +129,7 @@ button {
 }
 @media (prefers-color-scheme: light){
     body {
-        background-color: var(--soft-white);
+        background-color: var(--white);
     }
     .title {
         color: var(--abyss-black);
