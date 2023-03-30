@@ -1,7 +1,7 @@
 weather = {
     key: '0376c7e7c3f905978d9b8dfbdc92fdda',
-    fetchWeather: function(city){
-        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=' + this.key)
+    fetchWeather: function(city, units){
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=' + units + '&appid=' + this.key)
         .then(response => response.json())
         .then(data => this.displayWeather(data))
         .catch(error => console.log("Error: ", error))
@@ -21,7 +21,9 @@ weather = {
         document.body.style.backgroundImage = "url('https://source.unsplash.com/random/?" + name +"')";
     },
     search: function(){
-        this.fetchWeather(document.querySelector('.search-bar').value)
+        units = this.updateUnits()
+        // Search City & Units
+        this.fetchWeather(document.querySelector('.search-bar').value, units);
     },
     clearSearchText: function(){
         document.querySelector('.search-bar').value = '';
@@ -30,19 +32,31 @@ weather = {
         let temperature = parseFloat(document.querySelector('.temp').innerText)
        
 
-         if (this.isCelcius()){
-            let farenheit = ((temperature * (9/5)) + 32);
-            document.querySelector('.temp').innerText = farenheit.toFixed(0) + "° F";
+         if (this.isCelsius()){
+            let fahrenheit = ((temperature * (9/5)) + 32);
+            document.querySelector('.temp').innerText = fahrenheit.toFixed(0) + "° F";
 
          } else {
-            let celcius = ((temperature - 32) * (5/9) );
-            document.querySelector('.temp').innerText = celcius.toFixed(0) + "° C";
+            let celsius = ((temperature - 32) * (5/9) );
+            document.querySelector('.temp').innerText = celsius.toFixed(0) + "° C";
          }
         
     },
-    isCelcius: function(){
+    isCelsius: function(){
+        
         return (document.querySelector('.temp').innerText.includes('C') ? true : false)
     },
+    updateUnits: function(){
+        console.log("is Celsius", this.isCelsius())
+
+        if (this.isCelsius()){
+            console.log("change units to fahrenheit")
+            return 'imperial' 
+        } else {
+            console.log("change units to celsius")
+            return 'metric' 
+        }
+    },  
     
 
 }
@@ -52,6 +66,7 @@ document.querySelector('.search button').addEventListener("click", function(){
     
     weather.search();
     weather.clearSearchText();
+    
 })
 
 
@@ -62,11 +77,12 @@ document.querySelector('.search-bar').addEventListener("keydown", function(event
     if (event.key=="Enter"){
         weather.search();
         weather.clearSearchText();
+        
     }
 })
 
 // add temperature conversion
 document.querySelector('.temp').addEventListener("click", function(){
-
+    weather.updateUnits();
     weather.convertTemperature()
 })
