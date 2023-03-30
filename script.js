@@ -1,5 +1,3 @@
-// let icon_link = 'https://openweathermap.org/img/wn/' + weather.icon + '@' + icon_size + '.png'
-
 weather = {
     key: '0376c7e7c3f905978d9b8dfbdc92fdda',
     fetchWeather: function(city){
@@ -28,10 +26,30 @@ weather = {
     clearSearchText: function(){
         document.querySelector('.search-bar').value = '';
     },
+    convertTemperature: function(){
+        let temperature = parseFloat(document.querySelector('.temp').innerText)
+       
+
+         if (this.isCelcius()){
+            let farenheit = ((temperature * (9/5)) + 32);
+            document.querySelector('.temp').innerText = farenheit.toFixed(0) + "° F";
+
+         } else {
+            let celcius = ((temperature - 32) * (5/9) );
+            document.querySelector('.temp').innerText = celcius.toFixed(0) + "° C";
+         }
+        
+    },
+    isCelcius: function(){
+        return (document.querySelector('.temp').innerText.includes('C') ? true : false)
+    },
+    
+
 }
 
 // Add Search Buton Feature
 document.querySelector('.search button').addEventListener("click", function(){
+    
     weather.search();
     weather.clearSearchText();
 })
@@ -40,9 +58,15 @@ document.querySelector('.search button').addEventListener("click", function(){
 
 // Add event listener for city input on keydown
 document.querySelector('.search-bar').addEventListener("keydown", function(event){
+
     if (event.key=="Enter"){
         weather.search();
         weather.clearSearchText();
     }
 })
 
+// add temperature conversion
+document.querySelector('.temp').addEventListener("click", function(){
+
+    weather.convertTemperature()
+})
