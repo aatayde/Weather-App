@@ -21,9 +21,7 @@ weather = {
         document.body.style.backgroundImage = "url('https://source.unsplash.com/random/?" + name +"')";
     },
     search: function(){
-        units = this.updateUnits()
-        // Search City & Units
-        this.fetchWeather(document.querySelector('.search-bar').value, units);
+        this.fetchWeather(document.querySelector('.search-bar').value , this.getUnits())
     },
     clearSearchText: function(){
         document.querySelector('.search-bar').value = '';
@@ -32,31 +30,32 @@ weather = {
         let temperature = parseFloat(document.querySelector('.temp').innerText)
        
 
-         if (this.isCelsius()){
-            let fahrenheit = ((temperature * (9/5)) + 32);
-            document.querySelector('.temp').innerText = fahrenheit.toFixed(0) + "° F";
+         if (this.isCelcius()){
+            let farenheit = ((temperature * (9/5)) + 32);
+            document.querySelector('.temp').innerText = farenheit.toFixed(0) + "° F";
 
          } else {
-            let celsius = ((temperature - 32) * (5/9) );
-            document.querySelector('.temp').innerText = celsius.toFixed(0) + "° C";
+            let celcius = ((temperature - 32) * (5/9) );
+            document.querySelector('.temp').innerText = celcius.toFixed(0) + "° C";
          }
         
     },
-    isCelsius: function(){
-        
+    isCelcius: function(){
         return (document.querySelector('.temp').innerText.includes('C') ? true : false)
     },
-    updateUnits: function(){
-        console.log("is Celsius", this.isCelsius())
-
-        if (this.isCelsius()){
-            console.log("change units to fahrenheit")
-            return 'imperial' 
-        } else {
-            console.log("change units to celsius")
-            return 'metric' 
+    getUnits: function(systemOfMeasurements){
+        switch (systemOfMeasurements){
+            case 'metric': 
+                console.log('Metic Selected')
+                return 'metric';
+            case 'imperial' : 
+            console.log('Imperial Selected')
+                return 'imperial';
+            default : 
+            console.log('Default Selected')
+                return 'metric';
         }
-    },  
+    }
     
 
 }
@@ -66,7 +65,6 @@ document.querySelector('.search button').addEventListener("click", function(){
     
     weather.search();
     weather.clearSearchText();
-    
 })
 
 
@@ -77,12 +75,11 @@ document.querySelector('.search-bar').addEventListener("keydown", function(event
     if (event.key=="Enter"){
         weather.search();
         weather.clearSearchText();
-        
     }
 })
 
 // add temperature conversion
 document.querySelector('.temp').addEventListener("click", function(){
-    weather.updateUnits();
+
     weather.convertTemperature()
 })
