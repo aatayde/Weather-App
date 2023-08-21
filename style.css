@@ -43,6 +43,11 @@ body {
     font-size: 2.2em;
 }
 
+.temp:hover {
+    cursor: pointer;
+   }
+   
+
 .humidity {
     padding: 0rem 0rem 1rem 0rem;
 }
