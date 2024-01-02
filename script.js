@@ -1,28 +1,40 @@
 weather = {
-    key: '0376c7e7c3f905978d9b8dfbdc92fdda',
-    fetchWeather: function(city, units){
-        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=' + units + '&appid=' + this.key)
-        .then(response => response.json())
-        .then(data => this.displayWeather(data))
-        .catch(error => console.log("Error: ", error))
+    fetchWeather: function(city) {
+        const url = `http://localhost:3000/weather?city=${city}`;
+        console.log("checking . . .", city)
+        fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+            this.displayWeather(data);
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            //document.getElementById('weatherResult').textContent = 'Failed to load weather data.';
+        });
     },
     displayWeather: function(data){
         const { name } = data;
         const { icon, description } = data.weather[0];
         const { temp, humidity} = data.main;
         const { speed } = data.wind;
+        const newTemp = temp - 273.15;
         console.log(name, icon, description, temp, humidity, speed)
         document.querySelector('.city').innerText = name;
         document.querySelector('.icon').src = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
-        document.querySelector('.temp').innerText =  temp.toFixed(0) + "° " + unitSymbol;
+        document.querySelector('.temp').innerText =  newTemp.toFixed(0) + "° " + unitSymbol;
         document.querySelector('.desctiption').innerText =  description;
         document.querySelector('.wind').innerText = "wind " + speed + " mph";
         document.querySelector('.humidity').innerText = "humidity " + humidity + "%";
         document.body.style.backgroundImage = "url('https://source.unsplash.com/random/?" + name +"')";
     },
     search: function(){
-        console.log(testName)
-        this.fetchWeather(document.querySelector('.search-bar').value , this.getUnits(testName))
+        this.fetchWeather(document.querySelector('.search-bar').value)
        
     },
     clearSearchText: function(){
@@ -73,12 +85,13 @@ weather = {
     }
 }
 
+
+
 testName = 'metric';
 unitSymbol = 'C';
 
 // Add Search Buton Feature
 document.querySelector('.search button').addEventListener("click", function(){
-    
     weather.search();
     weather.clearSearchText();
 })
