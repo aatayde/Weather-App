@@ -70,6 +70,13 @@ weather = {
                 // break;
                 return 'metric';
         }
+    },
+    logSearchHistory: function(){
+
+        // log searched city history
+        console.log("logging search to history")
+        console.log(document.querySelector('.search-bar').value)
+        
     }
 }
 
@@ -80,6 +87,7 @@ unitSymbol = 'C';
 document.querySelector('.search button').addEventListener("click", function(){
     
     weather.search();
+    weather.logSearchHistory();
     weather.clearSearchText();
 })
 
@@ -89,6 +97,7 @@ document.querySelector('.search-bar').addEventListener("keydown", function(event
 
     if (event.key=="Enter"){
         weather.search();
+        weather.logSearchHistory();
         weather.clearSearchText();
     }
 })
@@ -98,3 +107,4 @@ document.querySelector('.temp').addEventListener("click", function(){
     
     weather.convertTemperature()
 })
+
