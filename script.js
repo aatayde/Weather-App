@@ -19,7 +19,7 @@ weather = {
         document.querySelector('.wind').innerText = "wind " + speed + " mph";
         document.querySelector('.humidity').innerText = "humidity " + humidity + "%";
         document.body.style.backgroundImage = "url('https://source.unsplash.com/random/?" + name +"')";
-        searchedHistory.push(name) // log city to search history
+        // searchedHistory.push(name) // log city to search history
     },
     search: function(){
         
@@ -89,12 +89,28 @@ weather = {
 testName = 'metric';
 unitSymbol = 'C';
 searchedHistory = [];
+// const searchHistory = document.querySelector('.searchHistory')
 
 
 function displaySearchHistory(){
     // display cities searched in order
-}
+    // if list does not exsist, create one.
+    if (!document.getElementById('searchHistory')){
+        // make unordered list
+        const searchHistory = document.createElement('ul');
+        searchHistory.id = 'searchHistory';
 
+    } else {
+
+        // searchHistory
+        document.querySelector('.weather').appendChild(searchHistory)
+        // add searched city as unordered list item
+        const listItem = document.createElement('li')
+        listItem.textContent = 'Tempe'
+        searchHistory.appendChild(listItem);
+        // add list to container
+    }
+}
 
 // Add Search Buton Feature
 document.querySelector('.search button').addEventListener("click", function(){
