@@ -75,13 +75,17 @@ weather = {
 
         // log searched city history
         console.log("logging search to history")
-        console.log(document.querySelector('.search-bar').value)
+        // console.log(document.querySelector('.search-bar').value)
+        searchedHistory.push(document.querySelector('.search-bar').value) // this logs inputs
+        console.log(searchedHistory);
         
     }
 }
 
 testName = 'metric';
 unitSymbol = 'C';
+searchedHistory = [];
+
 
 // Add Search Buton Feature
 document.querySelector('.search button').addEventListener("click", function(){
