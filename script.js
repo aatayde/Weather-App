@@ -19,8 +19,10 @@ weather = {
         document.querySelector('.wind').innerText = "wind " + speed + " mph";
         document.querySelector('.humidity').innerText = "humidity " + humidity + "%";
         document.body.style.backgroundImage = "url('https://source.unsplash.com/random/?" + name +"')";
+        searchedHistory.push(name) // log city to search history
     },
     search: function(){
+        
         console.log(testName)
         this.fetchWeather(document.querySelector('.search-bar').value , this.getUnits(testName))
        
@@ -74,17 +76,24 @@ weather = {
     logSearchHistory: function(){
 
         // log searched city history
-        console.log("logging search to history")
+        // console.log("logging search to history")
         // console.log(document.querySelector('.search-bar').value)
-        searchedHistory.push(document.querySelector('.search-bar').value) // this logs inputs
-        console.log(searchedHistory);
+        // searchedHistory.push(document.querySelector('.search-bar').value)
+        // searchedHistory.push(city)
         
+        console.log(searchedHistory);
+        displaySearchHistory()
     }
 }
 
 testName = 'metric';
 unitSymbol = 'C';
 searchedHistory = [];
+
+
+function displaySearchHistory(){
+    // display cities searched in order
+}
 
 
 // Add Search Buton Feature
